@@ -1,0 +1,508 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>K. Meghana — AI & Data Science Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #ffffff;
+    --bg-secondary: #f7f6f3;
+    --bg-info: #e6f1fb;
+    --bg-success: #eaf3de;
+    --text: #1a1a18;
+    --text-secondary: #5f5e5a;
+    --text-tertiary: #888780;
+    --text-info: #185fa5;
+    --text-success: #3b6d11;
+    --border: rgba(26,26,24,0.13);
+    --border-md: rgba(26,26,24,0.25);
+    --radius-md: 8px;
+    --radius-lg: 12px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1a;
+      --bg-secondary: #252523;
+      --bg-info: #042c53;
+      --bg-success: #173404;
+      --text: #f0ede6;
+      --text-secondary: #b4b2a9;
+      --text-tertiary: #888780;
+      --text-info: #85b7eb;
+      --text-success: #97c459;
+      --border: rgba(240,237,230,0.13);
+      --border-md: rgba(240,237,230,0.25);
+    }
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .port {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem 5rem;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 4rem 0 2.8rem;
+    border-bottom: 0.5px solid var(--border);
+    margin-bottom: 3rem;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--bg-info);
+    color: var(--text-info);
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--text-info);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 580px;
+    margin-bottom: 1.8rem;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .contact-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: 0.5px solid var(--border-md);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .contact-pill:hover { border-color: var(--text-secondary); color: var(--text); }
+
+  /* SECTIONS */
+  .section { margin-bottom: 3.2rem; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 1.4rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+  }
+
+  .skill-card {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 14px 16px;
+  }
+
+  .skill-card-label {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+  .tag {
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 10px;
+    background: var(--bg);
+    border: 0.5px solid var(--border);
+    color: var(--text-secondary);
+  }
+
+  /* TIMELINE */
+  .timeline { display: flex; flex-direction: column; gap: 1.6rem; }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .tl-date {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    padding-top: 4px;
+    text-align: right;
+  }
+
+  .tl-body {
+    border-left: 1.5px solid var(--border);
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .tl-body::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--bg-info);
+    border: 1.5px solid var(--text-info);
+  }
+
+  .tl-title { font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+  .tl-org { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+
+  .tl-bullets {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    padding-left: 1rem;
+  }
+
+  .tl-bullets li { margin-bottom: 3px; }
+
+  .tl-cgpa {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    background: var(--bg-success);
+    color: var(--text-success);
+    padding: 3px 12px;
+    border-radius: 10px;
+    margin-top: 4px;
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+
+  .proj-card {
+    background: var(--bg);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.2rem;
+    transition: border-color 0.15s;
+  }
+
+  .proj-card:hover { border-color: var(--text-info); }
+
+  .proj-icon { font-size: 24px; margin-bottom: 10px; display: block; }
+  .proj-title { font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+
+  .proj-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .proj-tech { display: flex; flex-wrap: wrap; gap: 4px; }
+
+  .proj-tech span {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 8px;
+    background: var(--bg-info);
+    color: var(--text-info);
+  }
+
+  /* CERTS */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 8px;
+  }
+
+  .cert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 11px 14px;
+    border-radius: var(--radius-md);
+    border: 0.5px solid var(--border);
+    background: var(--bg-secondary);
+  }
+
+  .cert-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-info);
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  .cert-text { font-size: 13px; line-height: 1.5; }
+  .cert-issuer { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }
+
+  /* PERSONAL */
+  .personal-row { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .personal-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    font-size: 13px;
+  }
+
+  .chip-label { color: var(--text-tertiary); font-size: 11px; display: block; margin-bottom: 2px; }
+  .chip-val { font-weight: 500; }
+
+  /* FOOTER */
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border);
+    font-size: 12px;
+    color: var(--text-tertiary);
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .tl-item { grid-template-columns: 1fr; gap: 0.3rem; }
+    .tl-date { text-align: left; }
+    .port { padding: 0 1rem 3rem; }
+    .hero { padding: 2.5rem 0 2rem; }
+  }
+</style>
+</head>
+<body>
+<div class="port">
+
+  <div class="hero">
+    <div class="hero-tag">Available for opportunities</div>
+    <h1>K. <em>Meghana</em></h1>
+    <p class="hero-sub">B.Tech in Artificial Intelligence & Data Science &nbsp;·&nbsp; Python &nbsp;·&nbsp; Machine Learning &nbsp;·&nbsp; Data Analytics &nbsp;·&nbsp; Flask &nbsp;·&nbsp; Tableau</p>
+    <div class="contact-row">
+      <a class="contact-pill" href="mailto:meghana.kothakula@gmail.com">✉ meghana.kothakula@gmail.com</a>
+      <a class="contact-pill" href="tel:6301850489">☎ 6301850489</a>
+      <a class="contact-pill" href="https://linkedin.com/in/meghana.kothakula-729464323" target="_blank">🔗 LinkedIn</a>
+      <span class="contact-pill">📍 Bangalore, Karnataka</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section">
+    <div class="section-label">About</div>
+    <p style="font-size:15px;line-height:1.8;color:var(--text-secondary);max-width:700px;">
+      Motivated B.Tech graduate specialising in AI &amp; Data Science with hands-on experience in Python, SQL, and machine learning. Proven ability to build real-world AI applications and derive actionable insights from data. Eager to contribute technical expertise and analytical skills to drive organisational success and continuous innovation.
+    </p>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <div class="section-label">Technical skills</div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-label">Languages</div>
+        <div class="skill-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Java (basics)</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-label">Data & ML</div>
+        <div class="skill-tags">
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">NLP</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-label">Visualisation</div>
+        <div class="skill-tags">
+          <span class="tag">Tableau</span>
+          <span class="tag">Excel</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-label">Tools & Platforms</div>
+        <div class="skill-tags">
+          <span class="tag">Flask</span>
+          <span class="tag">Jupyter</span>
+          <span class="tag">VS Code</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <div class="section-label">Experience</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">May – Jul 2025</div>
+        <div class="tl-body">
+          <div class="tl-title">AI – Data Quality Analyst Intern</div>
+          <div class="tl-org">Rooman Technologies</div>
+          <ul class="tl-bullets">
+            <li>Performed data cleaning &amp; preprocessing to improve overall dataset quality</li>
+            <li>Analysed datasets and identified inconsistencies to support data quality improvements</li>
+            <li>Utilised Python and data analysis libraries for efficient data processing</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Jun – Jul 2025</div>
+        <div class="tl-body">
+          <div class="tl-title">Data Analytics Intern (Tableau)</div>
+          <div class="tl-org">SmartBridge Educational Services</div>
+          <ul class="tl-bullets">
+            <li>Designed and developed interactive Tableau dashboards to visualise key business metrics</li>
+            <li>Analysed datasets to derive actionable insights and generate comprehensive reports</li>
+            <li>Strengthened practical skills in data visualisation and analytical storytelling</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section">
+    <div class="section-label">Projects</div>
+    <div class="projects-grid">
+      <div class="proj-card">
+        <span class="proj-icon">🧴</span>
+        <div class="proj-title">AI-Driven Skincare Solutions</div>
+        <div class="proj-desc">Detects skin conditions from images, identifying acne, redness &amp; texture features via an intuitive Flask web interface.</div>
+        <div class="proj-tech"><span>Python</span><span>Flask</span><span>Image Processing</span></div>
+      </div>
+      <div class="proj-card">
+        <span class="proj-icon">📊</span>
+        <div class="proj-title">Student Performance Prediction</div>
+        <div class="proj-desc">ML model predicting student marks from study hours with full end-to-end pipeline — preprocessing, training, evaluation.</div>
+        <div class="proj-tech"><span>Python</span><span>Pandas</span><span>Scikit-learn</span></div>
+      </div>
+      <div class="proj-card">
+        <span class="proj-icon">📧</span>
+        <div class="proj-title">Spam Email Detection</div>
+        <div class="proj-desc">NLP-based classifier using CountVectorizer &amp; Naive Bayes to distinguish spam from legitimate email content.</div>
+        <div class="proj-tech"><span>Python</span><span>NLP</span><span>Naive Bayes</span></div>
+      </div>
+      <div class="proj-card">
+        <span class="proj-icon">⛅</span>
+        <div class="proj-title">Weather Application</div>
+        <div class="proj-desc">Fetches real-time temperature &amp; weather conditions via API based on user-entered city name.</div>
+        <div class="proj-tech"><span>Python</span><span>REST API</span><span>requests</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-label">Education</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">2022 – 2026</div>
+        <div class="tl-body">
+          <div class="tl-title">B.Tech — Artificial Intelligence & Data Science</div>
+          <div class="tl-org">Aditya College of Engineering, Madanapalle</div>
+          <span class="tl-cgpa">CGPA 8.20</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2021 – 2022</div>
+        <div class="tl-body">
+          <div class="tl-title">Intermediate Education (MPC)</div>
+          <div class="tl-org">Sri Chaitanya Junior College, Tirupati</div>
+          <span class="tl-cgpa">CGPA 8.10</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2019 – 2020</div>
+        <div class="tl-body">
+          <div class="tl-title">Secondary School Education</div>
+          <div class="tl-org">Vijayavani Residential School, Chowdepalle</div>
+          <span class="tl-cgpa">CGPA 7.40</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="section">
+    <div class="section-label">Certifications</div>
+    <div class="certs-grid">
+      <div class="cert-item"><div class="cert-dot"></div><div><div class="cert-text">AI Data Quality Analyst Internship</div><div class="cert-issuer">Rooman Technologies Pvt. Ltd.</div></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div><div class="cert-text">Data Analytics with Tableau</div><div class="cert-issuer">SmartBridge Educational Services Pvt. Ltd.</div></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div><div class="cert-text">Enterprise-Grade AI</div><div class="cert-issuer">IBM</div></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div><div class="cert-text">Data Analytics Job Simulation</div><div class="cert-issuer">Deloitte</div></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div><div class="cert-text">ChatGPT & AI in MS Office</div><div class="cert-issuer">Skill Nation</div></div></div>
+      <div class="cert-item"><div class="cert-dot"></div><div><div class="cert-text">AI for Beginners</div><div class="cert-issuer">HP LIFE</div></div></div>
+    </div>
+  </div>
+
+  <!-- PERSONAL -->
+  <div class="section">
+    <div class="section-label">Personal details</div>
+    <div class="personal-row">
+      <div class="personal-chip"><div><span class="chip-label">Date of birth</span><span class="chip-val">17 January 2004</span></div></div>
+      <div class="personal-chip"><div><span class="chip-label">Languages known</span><span class="chip-val">Telugu · English · Hindi · Kannada</span></div></div>
+      <div class="personal-chip"><div><span class="chip-label">Location</span><span class="chip-val">Bangalore, Karnataka</span></div></div>
+    </div>
+  </div>
+
+  <footer>
+    K. Meghana &nbsp;·&nbsp; meghana.kothakula@gmail.com &nbsp;·&nbsp; Bangalore, Karnataka
+  </footer>
+
+</div>
+</body>
+</html>
